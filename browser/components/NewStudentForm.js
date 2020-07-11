@@ -19,6 +19,7 @@ export default class NewStudentForm extends Component {
   }
   handleSubmit(event) {
     event.preventDefault();
+    this.props.addStudent(this.state);
     this.setState({
       firstName: '',
       lastName: '',
@@ -29,7 +30,7 @@ export default class NewStudentForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
+        <label htmlFor="firstName">
           First Name:
           <input
             type="text"
@@ -39,7 +40,7 @@ export default class NewStudentForm extends Component {
           />
         </label>
 
-        <label>
+        <label htmlFor="lastName">
           Last Name:
           <input
             type="text"
@@ -49,7 +50,7 @@ export default class NewStudentForm extends Component {
           />
         </label>
 
-        <label>
+        <label htmlFor="email">
           Email:
           <input
             type="email"
