@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { postNewStudent } from '../store';
 
-export default class NewStudentForm extends Component {
+/* export default */ class NewStudentForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -65,3 +67,11 @@ export default class NewStudentForm extends Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addStudent: (student) => dispatch(postNewStudent(student)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(NewStudentForm);
